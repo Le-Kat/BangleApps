@@ -2,7 +2,7 @@
   "id": "bgwatch",
   "name": "background watch",
   "shortName": "bg watch",
-  "version": "0.01",
+  "version": "0.02",
   "description": "Vibrate the watch to tell you when time has passed",
   "icon": "app-icon.png",
   "tags": "tool,alarm",
