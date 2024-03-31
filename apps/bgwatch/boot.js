@@ -1,6 +1,6 @@
 (function() {
   function setup () {
-    var settings = require('Storage').readJSON('hourstrike.json',1);
+    var settings = require('Storage').readJSON('bgwatch.json',1);
     var t = new Date();
     var t_min_sec = t.getMinutes()*60+t.getSeconds();
     var wait_msec = settings.interval>0?(settings.interval-t_min_sec%settings.interval)*1000:-1;
@@ -26,10 +26,10 @@
       settings.next_hour = -1;
       settings.next_minute = -1;
     }
-    require('Storage').write('hourstrike.json', settings);
+    require('Storage').write('bgwatch.json', settings);
   }
   function strike_func () {
-    var setting = require('Storage').readJSON('hourstrike.json',1)||[];
+    var setting = require('Storage').readJSON('bgwatch.json',1)||[];
     if (0 == setting.buzzOrBeep) {
       if (2 == setting.scount) {
         Bangle.buzz(200, setting.vlevel||0.5)

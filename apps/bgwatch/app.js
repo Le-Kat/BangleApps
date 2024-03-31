@@ -1,9 +1,9 @@
 const storage = require('Storage');
-var settings = storage.readJSON('hourstrike.json', 1);
+var settings = storage.readJSON('bgwatch.json', 1);
 const chimes = ["Buzz", "Beep"];
 
 function updateSettings() {
-  storage.write('hourstrike.json', settings);
+  storage.write('bgwatch.json', settings);
 }
 
 function showMainMenu() {
