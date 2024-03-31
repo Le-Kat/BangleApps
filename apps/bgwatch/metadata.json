@@ -1,0 +1,18 @@
+{
+  "id": "bgwatch",
+  "name": "background watch",
+  "shortName": "bg watch",
+  "version": "0.01",
+  "description": "Vibrate the watch to tell you when time has passed",
+  "icon": "app-icon.png",
+  "tags": "tool,alarm",
+  "supports": ["BANGLEJS", "BANGLEJS2"],
+  "readme": "README.md",
+  "storage": [
+    {"name":"bgwatch.app.js","url":"app.js"},
+    {"name":"bgwatch.boot.js","url":"boot.js"},
+    {"name":"bgwatch.img","url":"app-icon.js","evaluate":true}
+  ], "data" : [
+    {"name":"bgwatch.json","url":"bgwatch.json"}
+  ]
+}
