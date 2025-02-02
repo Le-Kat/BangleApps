@@ -1,2 +1,4 @@
-Bangle.setBacklight (false);
-setTimeout (Bangle.showClock, 0);
+setTimeout (() => {
+  Bangle.setBacklight (false);
+  Bangle.showClock();
+}, 0);
