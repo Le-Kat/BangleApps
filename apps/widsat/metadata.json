@@ -1,0 +1,16 @@
+{
+  "id": "widsat",
+  "name": "satelite widget",
+  "shortName":"satelite Widget",
+  "icon": "widget.png",
+  "version":"0.01",
+  "type": "widget",
+  "supports": ["BANGLEJS", "BANGLEJS2"],
+  "readme": "README.md",
+  "description": "A satelite widget",
+  "tags": "widget,tool",
+  "provides_widgets" : ["widsat"],
+  "storage": [
+    {"name":"widsat.wid.js","url":"wid.js"}
+  ]
+}
