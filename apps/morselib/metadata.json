@@ -9,6 +9,7 @@
   "provides_modules" : ["morselib"],
   "default" : true,
   "storage": [
-    {"name":"morselib","url":"lib.js"}
+    {"name":"morselib","url":"lib.js"},
+    {"name":"morselib.img","url":"app-icon.js","evaluate":true}
   ]
 }
