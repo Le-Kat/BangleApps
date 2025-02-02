@@ -5,7 +5,7 @@
 		width: 24,
 		draw:function() {
 			g.reset().drawImage (
-				atob ("GBiBAAAAAAAAPASSfgSSTgSSBgSSBgSTDATZgAZMwAJmfAMzAAEZgAGM/ADGAABjgAAw/AAcAAAHAAAB/AAAAAAAAAAAAAAAAAAAAA=="),
+				atob ("GBiBAAAAAAAAPASSfgSSDgSSBgSSBgSTBATZgAZMwAJmfAMzAAEZgAGM/ADGAABjgAAw/AAcAAAHAAAB/AAAAAAAAAAAAAAAAAAAAA=="),
 				this.x,
 				this.y
 			);
