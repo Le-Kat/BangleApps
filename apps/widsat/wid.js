@@ -15,6 +15,10 @@
 	
 	function drawWidget() {
 		
+		setInterval(()=>{
+			WIDGETS.widsat.draw ();
+		}, 250);
+		
 		var gps = Bangle.getGPSFix();
 		if (gps !== undefined) {
 			
