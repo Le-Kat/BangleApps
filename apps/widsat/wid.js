@@ -57,6 +57,8 @@
 		return (24);
 	}
 	
+	Bangle.setGPSPower (true, "widget");
+	
 	WIDGETS["mywidget"]={
 		area: "tl",
 		width: getWidth(),
