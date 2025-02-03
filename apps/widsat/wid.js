@@ -13,42 +13,53 @@
 		atob ("GBiBAAAAAAAAPASSfgSSTgSSBgSSBgSTDATZgAZMwAJmfAMzAAEZgAGM/ADGAABjgAAw/AAcAAAHAAAB/AAAAAAAAAAAAAAAAAAAAA==")
 	];
 	
-	WIDGETS["mywidget"]={
-		area:"tl",
-		width: Bangle.isGPSOn() ? 24 : 0,
-		draw:function() {
+	function drawWidget() {
+		
+		var gps = Bangle.getGPSFix();
+		if (gps !== undefined) {
 			
-			var gps = Bangle.getGPSFix();
-			if (gps !== undefined) {
+			console.log (gps);
+			var s = gps ["satellites"];
+			if (s !== undefined) {
 				
-				var s = gps ["satellites"];
-				if (s !== undefined) {
+				var img;
+				if (s == 0) {
 					
-					var img;
-					if (s == 0) {
-						
-						img = SATELITES [0];
-					} else if (s == 1) {
-						
-						img = SATELITES [1];
-					} else if (s == 2) {
-						
-						img = SATELITES [2];
-					} else if (s == 3) {
-						
-						img = SATELITES [3];
-					} else {
-						
-						img = SATELITES [4];
-					}
+					img = SATELITES [0];
+				} else if (s == 1) {
 					
-					g.reset().drawImage (
-						img,
-						this.x,
-						this.y
-					);
+					img = SATELITES [1];
+				} else if (s == 2) {
+					
+					img = SATELITES [2];
+				} else if (s == 3) {
+					
+					img = SATELITES [3];
+				} else {
+					
+					img = SATELITES [4];
 				}
+				
+				g.reset().drawImage (
+					img,
+					this.x,
+					this.y
+				);
 			}
 		}
+	}
+	
+	function getWidth() {
+		
+		var gps = Bangle.getGPSFix();
+		if (gps === undefined) { return (0); }
+		
+		return (24);
+	}
+	
+	WIDGETS["mywidget"]={
+		area: "tl",
+		width: getWidth(),
+		draw: drawWidget
 	};
 })()
