@@ -18,7 +18,10 @@
 		var gps = Bangle.getGPSFix();
 		if (gps !== undefined) {
 			
-			require ("Storage").write ("widsat.debug.json", JSON.stringify (gps));
+			var file = require ("Storage").open ("widsat.debug.json", "a");
+			file.write (gps);
+			
+			//require ("Storage").write ("widsat.debug.json", JSON.stringify (gps));
 			var s = gps ["satellites"];
 			if (s !== undefined) {
 				

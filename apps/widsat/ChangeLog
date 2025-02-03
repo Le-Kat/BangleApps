@@ -6,3 +6,4 @@
 0.06: bump
 0.07: handle NaN
 0.08: debug write
+0.09: don't ovverwrite
