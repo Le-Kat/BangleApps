@@ -18,12 +18,11 @@
 		var gps = Bangle.getGPSFix();
 		if (gps !== undefined) {
 			
-			console.log (gps);
 			var s = gps ["satellites"];
 			if (s !== undefined) {
 				
 				var img;
-				if (s == 0) {
+				if (s == 0 || isNaN (s)) {
 					
 					img = SATELITES [0];
 				} else if (s == 1) {
