@@ -50,6 +50,7 @@
 	
 	function getWidth() {
 		
+		console.log ("I ran.");
 		var gps = Bangle.getGPSFix();
 		if (gps === undefined) { return (0); }
 		
