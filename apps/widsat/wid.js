@@ -57,15 +57,14 @@
 		return (24);
 	}
 	
-	Bangle.setGPSPower (false, "widget");
-	
 	WIDGETS ["widsat"] = {
 		area: "tl",
 		width: getWidth(),
 		draw: drawWidget
 	};
 	
-	//Bangle.on ('GPS', WIDGETS ["widsat"].draw());
-	
-	Bangle.drawWidgets();
+	Bangle.on ('gps', () => {
+		
+		WIDGETS ["widsat"].draw ();
+	});
 })()
