@@ -57,7 +57,7 @@
 		return (24);
 	}
 	
-	Bangle.setGPSPower (true, "widget");
+	Bangle.setGPSPower (false, "widget");
 	
 	WIDGETS ["widsat"] = {
 		area: "tl",
@@ -65,7 +65,7 @@
 		draw: drawWidget
 	};
 	
-	Bangle.on ('GPS', WIDGETS ["widsat"].draw());
+	//Bangle.on ('GPS', WIDGETS ["widsat"].draw());
 	
 	Bangle.drawWidgets();
 })()
