@@ -18,10 +18,6 @@
 		var gps = Bangle.getGPSFix();
 		if (gps !== undefined) {
 			
-			var file = require ("Storage").open ("widsat.debug.json", "a");
-			file.write (gps);
-			
-			//require ("Storage").write ("widsat.debug.json", JSON.stringify (gps));
 			var s = gps ["satellites"];
 			if (s !== undefined) {
 				
@@ -62,9 +58,15 @@
 	
 	Bangle.setGPSPower (true, "widget");
 	
-	WIDGETS["mywidget"]={
+	WIDGETS ["widsat"] = {
 		area: "tl",
 		width: getWidth(),
 		draw: drawWidget
 	};
+	
+	setInterval(()=>{
+		WIDGETS.widsat.draw ();
+	}, 250);
+	
+	Bangle.drawWidgets();
 })()
