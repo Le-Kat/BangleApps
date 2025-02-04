@@ -20,7 +20,7 @@
 		g.setFont("6x8");
 		let gps = Bangle.getGpsFix();
 		
-		g.drawString (gps ["satelites"], this.x, this.y);
+		g.drawString (gps.satellites, this.x, this.y);
 		
 	}
 	
