@@ -18,14 +18,22 @@
 	function drawWidget() {
 		g.reset(); // reset the graphics context to defaults (color/font/etc)
 		g.setFont("6x8");
-		g.drawString("auto", this.x, this.y);
-		g.drawString("time", this.x, this.y+10);
+		let gps = Bangle.getGpsFix();
+		
+		if (gps !== undefined) {
+			
+			g.drawString (gps ["satelites"], this.x, this.y);
+		} else {
+			
+			g.drawString (gps, this.x, this.y);
+		}
+		
 	}
 	
 	// add your widget
 	WIDGETS ["widsat"] = {
 		area:"tl", // tl (top left), tr (top right), bl (bottom left), br (bottom right)
-		width: Bangle.isGPSOn() ? 42 : 0, // width of the widget
+		width: Bangle.isGPSOn() ? 176 : 0, // width of the widget
 		draw: drawWidget 
 	};
 	
