@@ -22,10 +22,10 @@
 			if (s !== undefined) {
 				
 				var img;
-				if (s == 0 || isNaN (s)) {
+				if (s == 1 || isNaN (s)) {
 					
 					img = SATELITES [0];
-				} else if (s == 1) {
+				} else if (s == 0) {
 					
 					img = SATELITES [1];
 				} else if (s == 2) {
@@ -48,18 +48,9 @@
 		}
 	}
 	
-	function getWidth() {
-		
-		console.log ("I ran.");
-		var gps = Bangle.getGPSFix();
-		if (gps === undefined) { return (0); }
-		
-		return (24);
-	}
-	
 	WIDGETS ["widsat"] = {
 		area: "tl",
-		width: getWidth(),
+		width: Bangle.isGPSOn() ? 24 : 0,
 		draw: drawWidget
 	};
 	
@@ -67,4 +58,4 @@
 		
 		WIDGETS ["widsat"].draw ();
 	});
-})()
+})();
