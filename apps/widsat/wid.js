@@ -1,5 +1,6 @@
 (() => {
 	
+	/*
 	const SATELITES = [
 		// none
 		atob ("GBiBAAAAAAAAPAAAfgAATgAABgAABgAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="),
@@ -12,14 +13,11 @@
 		// four +
 		atob ("GBiBAAAAAAAAPASSfgSSTgSSBgSSBgSTDATZgAZMwAJmfAMzAAEZgAGM/ADGAABjgAAw/AAcAAAHAAAB/AAAAAAAAAAAAAAAAAAAAA==")
 	];
+	*/
 	
 	function drawWidget() {
 		g.reset(); // reset the graphics context to defaults (color/font/etc)
 		g.setFont("6x8");
-		if ((getTime() - lastTimeSet) <= 60) {
-			// time is uptodate
-			g.setColor('#00ff00'); // green
-		}
 		g.drawString("auto", this.x, this.y);
 		g.drawString("time", this.x, this.y+10);
 	}
@@ -35,7 +33,6 @@
 		if (fix.fix && fix.time) {
 			var curTime = fix.time.getTime()/1000;
 			setTime(curTime);
-			lastTimeSet = curTime;
 			
 			WIDGETS["gpsAutoTime"].draw(WIDGETS["gpsAutoTime"]);
 		}
