@@ -20,20 +20,14 @@
 		g.setFont("6x8");
 		let gps = Bangle.getGpsFix();
 		
-		if (gps !== undefined) {
-			
-			g.drawString (gps ["satelites"], this.x, this.y);
-		} else {
-			
-			g.drawString (gps, this.x, this.y);
-		}
+		g.drawString (gps ["satelites"], this.x, this.y);
 		
 	}
 	
 	// add your widget
 	WIDGETS ["widsat"] = {
 		area:"tl", // tl (top left), tr (top right), bl (bottom left), br (bottom right)
-		width: Bangle.isGPSOn() ? 176 : 0, // width of the widget
+		width: Bangle.isGPSOn() ? 64 : 0, // width of the widget
 		draw: drawWidget 
 	};
 	
