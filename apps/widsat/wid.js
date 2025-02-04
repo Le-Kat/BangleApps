@@ -14,56 +14,34 @@
 	];
 	
 	function drawWidget() {
-		
-		var gps = Bangle.getGPSFix();
-		if (gps !== undefined) {
-			
-			var s = gps ["satellites"];
-			if (s !== undefined) {
-				
-				/*
-				var img;
-				if (s == 0 || isNaN (s)) {
-					
-					img = SATELITES [0];
-				} else if (s == 1) {
-					
-					img = SATELITES [1];
-				} else if (s == 2) {
-					
-					img = SATELITES [2];
-				} else if (s == 3) {
-					
-					img = SATELITES [3];
-				} else {
-					
-					img = SATELITES [4];
-				}
-				*/
-				
-				g.reset();
-				g.setFont ("6x8");
-				g.drawString (s);
-				
-				/*
-				g.reset().drawImage (
-					img,
-					this.x,
-					this.y
-				);
-				*/
-			}
+		g.reset(); // reset the graphics context to defaults (color/font/etc)
+		g.setFont("6x8");
+		if ((getTime() - lastTimeSet) <= 60) {
+			// time is uptodate
+			g.setColor('#00ff00'); // green
 		}
+		g.drawString("auto", this.x, this.y);
+		g.drawString("time", this.x, this.y+10);
 	}
 	
+	// add your widget
 	WIDGETS ["widsat"] = {
-		area: "tl",
-		width: Bangle.isGPSOn() ? 24 : 0,
-		draw: drawWidget
+		area:"tl", // tl (top left), tr (top right), bl (bottom left), br (bottom right)
+		width: Bangle.isGPSOn() ? 42 : 0, // width of the widget
+		draw: drawWidget 
 	};
 	
-	Bangle.on ('gps', (gps) => {
-		
-		WIDGETS ["widsat"].draw ();
+	Bangle.on('GPS',function(fix) {
+		if (fix.fix && fix.time) {
+			var curTime = fix.time.getTime()/1000;
+			setTime(curTime);
+			lastTimeSet = curTime;
+			
+			WIDGETS["gpsAutoTime"].draw(WIDGETS["gpsAutoTime"]);
+		}
 	});
+	
+	setInterval(function() {
+		WIDGETS["gpsAutoTime"].draw(WIDGETS["gpsAutoTime"]);
+	}, 1*60000); // update every minute
 })();
