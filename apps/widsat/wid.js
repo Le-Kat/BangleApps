@@ -21,6 +21,7 @@
 			var s = gps ["satellites"];
 			if (s !== undefined) {
 				
+				/*
 				var img;
 				if (s == 0 || isNaN (s)) {
 					
@@ -38,6 +39,7 @@
 					
 					img = SATELITES [4];
 				}
+				*/
 				
 				g.reset();
 				g.setFont ("6x8");
